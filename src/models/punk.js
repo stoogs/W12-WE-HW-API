@@ -24,9 +24,10 @@ Punk.prototype.bindEvents = function() {
         request.get()
         .then((data) => {
             this.data = data;
+            //publish beers to result_view
             PubSub.publish('Punk:beers-obtained', this.data);
             //Prove Beers are here
-            console.log(this.data)
+            console.log('Punk.js Beers' , this.data)
         })
         .catch((message) => {
             console.error(message);

@@ -4,12 +4,13 @@ const Punk = require('./models/punk.js');
 const MinAbvForm = require('./views/min_abv_form');
 
 document.addEventListener('DOMContentLoaded', () => {
-  const punkMinAbv = document.querySelector('#beer-min-abv-form');
 
+  const punkMinAbv = document.querySelector('#beer-min-abv-form');
   const minAbvForm = new MinAbvForm(punkMinAbv);
   minAbvForm.bindEvents();
 
-  const resultView = new ResultView();
+  const beerCellar = document.querySelector('#beer-cellar');
+  const resultView = new ResultView(beerCellar);
   resultView.bindEvents();
 
   const punkData = new Punk();
