@@ -15,31 +15,39 @@ ResultView.prototype.bindEvents = function () {
     })
 };
 
-
-
 ResultView.prototype.render = function (beers) {
     this.resultContainer.innerHTML = '';
     //console.log(this.resultContainer);
 
     beers.forEach(beer => {
         //console.log(beer.name);
+
+    let container = document.createElement('div')
+        this.resultContainer.appendChild(container)
+
         let titleHeading = document.createElement('h1');
         let headline = `${beer.name} is ${beer.abv} %abv`;
         titleHeading.textContent = headline;
         this.resultContainer.appendChild(titleHeading);
 
-        let tagline = document.createElement('h3');
-        tagline.textContent = beer.tagline;
-        this.resultContainer.appendChild(tagline)
-        const img = document.createElement('img');
-        img.src = beer.image_url;
-        img.textContent = beer.description;
-        let description = document.createElement('h5');
-        description.textContent = beer.description;
-        this.resultContainer.appendChild(description);
-        this.resultContainer.appendChild(img)
-        //console.log(beers[4]['name'])
+
+
+    let tagline = document.createElement('h3');
+    tagline.textContent = beer.tagline;
+    this.resultContainer.appendChild(tagline)
+    const img = document.createElement('img');
+    img.src = beer.image_url;
+    img.textContent = beer.description;
+    let description = document.createElement('h5');
+    description.textContent = beer.description;
+    this.resultContainer.appendChild(description);
+    this.resultContainer.appendChild(img)
+
+
     })
     }
+
+
+
 
 module.exports = ResultView;
