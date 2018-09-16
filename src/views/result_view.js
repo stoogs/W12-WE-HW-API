@@ -10,24 +10,33 @@ ResultView.prototype.bindEvents = function () {
         console.log(event);
         const beers = event.detail;
         console.log("beers are here the beers are here");
-        console.log(beers)
+        console.log(beers);
         this.render(beers);
     })
 };
 
+
+
 ResultView.prototype.render = function (beers) {
     this.resultContainer.innerHTML = '';
     //console.log(this.resultContainer);
+
     beers.forEach(beer => {
         //console.log(beer.name);
         let titleHeading = document.createElement('h1');
         let headline = `${beer.name} is ${beer.abv} %abv`;
         titleHeading.textContent = headline;
         this.resultContainer.appendChild(titleHeading);
+
+        let tagline = document.createElement('h3');
+        tagline.textContent = beer.tagline;
+        this.resultContainer.appendChild(tagline)
         const img = document.createElement('img');
-        //check image url is ok
-        console.log(beer.image_url);
         img.src = beer.image_url;
+        img.textContent = beer.description;
+        let description = document.createElement('h5');
+        description.textContent = beer.description;
+        this.resultContainer.appendChild(description);
         this.resultContainer.appendChild(img)
         //console.log(beers[4]['name'])
     })

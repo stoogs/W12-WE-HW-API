@@ -4,7 +4,7 @@ const MinAbvForm = function (element) {
     this.element = element;
 }
 
-MinAbvForm.prototype.bindEvents = function () {
+MinAbvForm.prototype.bindEventsABV = function () {
     this.element.addEventListener('submit', (event) => {
         event.preventDefault();
         const minAbvNumber = event.target['min-abv-input'].value;
